@@ -22,11 +22,24 @@
                 <td>{{ $data->level_id }}</td>
             </tr> --}}
 
-            <tr>
+            {{-- <tr>
                 <th>Jumlah Pengguna</th>
             </tr>
             <tr>
                 <td>{{ $data }}</td>
+            </tr> --}}
+
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Nama</th>
+                <th>ID Level User</th>
+            </tr>
+            <tr>
+                <td>{{ $data->user_id }}</td>
+                <td>{{ $data->username }}</td>
+                <td>{{ $data->nama }}</td>
+                <td>{{ $data->level_id }}</td>
             </tr>
     </table>
 </body>
