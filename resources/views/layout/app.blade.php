@@ -9,6 +9,8 @@
 
 {{-- Extend and customize the page content header --}}
 
+@vite('resources/js/app.js')
+
 @section('content_header')
     @hasSection('content_header_title')
         <h1 class="text-muted">
@@ -46,20 +48,19 @@
 {{-- Add common Javascript/Jquery code --}}
 
 @push('js')
-<script>
-    $(document).ready(function() {
-    // Add your common script logic here...
-    });
-</script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
 @endpush
        
 {{-- Add common CSS customizations --}}
 
+@stack('scripts')
+
 @push('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css">
 <style type="text/css">
     {{-- You can add AdminLTE customizations here --}}
-    /*
-    .card-header {
+    
+    /* .card-header {
     border-bottom: none;
     }
     .card-title {
