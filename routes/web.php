@@ -31,3 +31,8 @@ Route::get('user/ubah/{id}', [UserController::class, 'ubah'])->name('/user/ubah'
 Route::get('user/hapus/{id}', [UserController::class, 'hapus'])->name('/user/hapus');
 Route::post('user/tambah_simpan', [UserController::class, 'tambah_simpan'])->name('/user/tambah_simpan');
 Route::put('user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->name('/user/ubah_simpan');
+
+// Jobsheet 5 - Praktikum 3  
+
+Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::post('/kategori', [KategoriController::class, 'store']);
