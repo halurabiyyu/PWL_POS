@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Route::get('/level', [LevelController::class, 'index']);
-Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
 Route::get('/user', [UserController::class, 'index'])->name('/user');
 
 // Jobsheet 4 - Praktikum 2.6
@@ -34,5 +34,10 @@ Route::put('user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->nam
 
 // Jobsheet 5 - Praktikum 3  
 
-Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
 Route::post('/kategori', [KategoriController::class, 'store']);
+
+// Jobsheet 5 Tugas 
+Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
+Route::put('kategori/edit_save/{id}', [KategoriController::class, 'edit_save'])->name('/kategori/edit_save');
+Route::get('kategori/delete/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');

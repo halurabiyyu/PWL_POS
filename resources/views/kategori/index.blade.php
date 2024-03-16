@@ -12,8 +12,14 @@
     <div class="container">
         <div class="card">
             <div class="card-header">Manage Kategori</div>
+
             <div class="card-body">
+                
+                {{-- Jobsheet 5 - Tugas No 1 --}}
+                <a href={{ route('/kategori/create') }} class="btn btn-primary m-2">ADD</a>
+                
                 {{ $dataTable->table() }}
+
             </div>
         </div>
     </div>

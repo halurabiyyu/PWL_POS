@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'welcome',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -332,6 +332,11 @@ return [
             'text' => 'change_password',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [   
+            'text' => 'Kategori',
+            'url' => 'kategori',
+            'icon' => 'fa fa-solid fa-list'
         ],
         [
             'text' => 'multilevel',
