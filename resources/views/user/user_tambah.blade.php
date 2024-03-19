@@ -20,7 +20,7 @@
 </body> --}}
 
 @extends('adminlte::page')
-@section('title', 'User')
+@section('title', 'Tambah User')
 @section('content_header')
 <h1>Tambah Data User</h1>
 @stop
@@ -33,7 +33,8 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <form>
+            <form method="POST" action={{route('/user/tambah_simpan')}}>
+                {{csrf_field()}}
                 <div class="row">
                     <div class="col">
                         <!-- text input -->
@@ -48,7 +49,7 @@
                             <input type="password" class="form-control" placeholder="password...">
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type = "submit" class ="btn btn-primary">Submit </button>
+                            <button type ="submit" class ="btn btn-primary">Submit </button>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'User')
+@section('title', 'Tambah Level')
 @section('content_header')
 <h1>Tambah Data Level</h1>
 @stop
