@@ -41,3 +41,7 @@ Route::post('/kategori', [KategoriController::class, 'store']);
 Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
 Route::put('kategori/edit_save/{id}', [KategoriController::class, 'edit_save'])->name('/kategori/edit_save');
 Route::get('kategori/delete/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
+
+
+Route::get('level/tambah', [LevelController::class, 'tambah'])->name('/level/tambah');
+

@@ -164,7 +164,7 @@ class UserController extends Controller
     }
 
     public function tambah(){
-        return view('user_tambah');
+        return view('user.user_tambah');
     }
 
     public function tambah_simpan(Request $request){
