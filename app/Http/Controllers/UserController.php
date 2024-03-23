@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\UserDataTable;
+use App\Http\Requests\StorePostRequest;
 use App\Models\UserModel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 // PRAKTIKUM 6 
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index(UserDataTable $dataTable){
         // INSERT DATA 
         // $data = [
         //     'username' => 'customer-1',
@@ -158,22 +162,31 @@ class UserController extends Controller
         // $user = UserModel::all();
         // return view('user', ['data' => $user]);
 
-        $user = UserModel::with('level')->get();
-        // dd($user);
-        return view('user', ['data' => $user]);
+        // $user = UserModel::with('level')->get();
+        // // dd($user);
+        // return view('user', ['data' => $user]);
+
+        return $dataTable->render('user.index');
     }
 
     public function tambah(){
-        return view('user.user_tambah');
+        return view('user.create');
     }
 
-    public function tambah_simpan(Request $request){
-        UserModel::create([
-            'username' => $request->username,
-            'nama' => $request->nama,
-            'password' => Hash::make($request->username),
-            'level_id' => $request->level_id
-        ]);
+    public function tambah_simpan(StorePostRequest $request): RedirectResponse{
+        // UserModel::create([
+        //     'username' => $request->username,
+        //     'nama' => $request->nama,
+        //     'password' => Hash::make($request->username),
+        //     'level_id' => $request->level_id
+        // ]);
+        // return redirect('/user');
+
+        $validated = $request->validated();
+        
+        $validated = $request->safe()->only(['username', 'nama', 'password', 'level_id']);
+        $validated = $request->safe()->except(['username', 'nama', 'password', 'level_id']);
+
         return redirect('/user');
     }
 

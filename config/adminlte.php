@@ -338,6 +338,16 @@ return [
             'url' => 'kategori',
             'icon' => 'fa fa-solid fa-list'
         ],
+        [   
+            'text' => 'User',
+            'url' => 'user',
+            'icon' => 'fa fa-solid fa-list'
+        ],
+        [   
+            'text' => 'Level',
+            'url' => 'level',
+            'icon' => 'fa fa-solid fa-list'
+        ],
         [
             'text' => 'multilevel',
             'icon' => 'fas fa-fw fa-share',

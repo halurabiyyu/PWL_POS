@@ -26,10 +26,10 @@ Route::get('/user', [UserController::class, 'index'])->name('/user');
 
 // Jobsheet 4 - Praktikum 2.6
 
-Route::get('user/tambah', [UserController::class, 'tambah'])->name('/user/tambah');
+Route::get('/user/tambah', [UserController::class, 'tambah'])->name('/user/tambah');
 Route::get('user/ubah/{id}', [UserController::class, 'ubah'])->name('/user/ubah');
 Route::get('user/hapus/{id}', [UserController::class, 'hapus'])->name('/user/hapus');
-Route::post('user/tambah_simpan', [UserController::class, 'tambah_simpan'])->name('/user/tambah_simpan');
+Route::post('/user', [UserController::class, 'tambah_simpan']);
 Route::put('user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->name('/user/ubah_simpan');
 
 // Jobsheet 5 - Praktikum 3  
@@ -43,5 +43,6 @@ Route::put('kategori/edit_save/{id}', [KategoriController::class, 'edit_save'])-
 Route::get('kategori/delete/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
 
 
-Route::get('level/tambah', [LevelController::class, 'tambah'])->name('/level/tambah');
+Route::get('/level/tambah', [LevelController::class, 'tambah'])->name('/level/tambah');
+Route::post('/level', [LevelController::class, 'store']);
 

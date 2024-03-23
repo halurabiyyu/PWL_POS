@@ -1,43 +1,61 @@
-@extends('adminlte::page')
-@section('title', 'Tambah Level')
-@section('content_header')
-<h1>Tambah Data Level</h1>
-@stop
-@section('content')
 
-<div class="col">
-    <div class="card card-danger">
-        <div class="card-header">
-            <h3 class="card-title">Create Level</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <form>
-                <div class="row">
-                    <div class="col">
-                        <!-- text input -->
-                        <div class="form-group">
-                            <label>Nama Level</label>
-                            <input type="text" class="form-control" placeholder="nama level...">
-                            <label>Kode Level</label>
-                            <input type="text" class="form-control" placeholder="kode level...">
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type = "submit" class ="btn btn-primary">Submit </button>
-                        </div>
+@extends('layout.app')
+
+{{-- Customize layout section  --}}
+
+@section('subtitle', 'Level')
+@section('content_header_title', 'Level')
+@section('content_header_subtitle', 'create')
+
+{{-- Content body: main page content  --}}
+
+@section('content')
+    <div class="container">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Buat Level Baru
+                </h3>
+            </div>
+
+            <form method="post" action="../level">
+                <div class="card-body">
+                    
+                    <div class="form-group">
+                        <label for="level_nama">Nama level</label>
+                        <input type="text" class="@error('level_nama') is-invalid @enderror" id="level_nama" name="level_nama" placeholder="Nama level">
                     </div>
+                    @error('level_nama')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                    <div class="form-group">
+                        <label for="level_kode">Kode level</label>
+                        <input type="text" class="@error('level_kode') is-invalid @enderror" id="level_kode" name="level_kode" placeholder="Kode level">
+                    </div>
+                    @error('level_kode')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                
+    
+                
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
-        <!-- /.card-body -->
     </div>
-</div>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+@endsection
 
-@stop
-@section('css')
-{{-- Add here extra stylesheets --}}
-{{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-@stop
-@section('js')
-<script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
-@stop
+
+
+    

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\KategoriDataTable;
+use App\Http\Requests\StorePostRequest;
 use App\Models\KategoriModel;
 use Illuminate\Http\RedirectResponse;
 
@@ -41,7 +42,7 @@ class KategoriController extends Controller
         return view('kategori.create');
     }
 
-    public function store(Request $request): RedirectResponse{
+    public function store(StorePostRequest $request): RedirectResponse{
         
         // Jobsheet 6 - B Soal No 4 
         // $validatedData = $request->validate([
@@ -61,10 +62,18 @@ class KategoriController extends Controller
                     // ]) ;
         
         // JOBSHEET 6 - B No 6 
-        $validate = $request->validate([
-            'kategori_kode' => 'bail|required|max:255',
-            'kategori_nama' => 'required|min:10',
-        ]);
+        // $validate = $request->validate([
+        //     'kategori_kode' => 'bail|required|max:255',
+        //     'kategori_nama' => 'required|min:10',
+        // ]);
+
+        // Jobsheet 6 - C No 2
+        $validated = $request->validated();
+        
+        $validated = $request->safe()->only(['kategori_kode', 'kategori_nama']);
+        $validated = $request->safe()->except(['kategori_kode', 'kategori_nama']);
+
+        
 
         return redirect('/kategori');
     }
