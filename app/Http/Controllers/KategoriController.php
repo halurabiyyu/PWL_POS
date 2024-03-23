@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\KategoriDataTable;
 use App\Models\KategoriModel;
+use Illuminate\Http\RedirectResponse;
 
 // PRAKTIKUM 5  
 
@@ -40,14 +41,34 @@ class KategoriController extends Controller
         return view('kategori.create');
     }
 
-    public function store(Request $request){
-        KategoriModel::create([
-            'kategori_kode' => $request->kodeKategori,
-            'kategori_nama' => $request->namaKategori,
+    public function store(Request $request): RedirectResponse{
+        
+        // Jobsheet 6 - B Soal No 4 
+        // $validatedData = $request->validate([
+            //     'kategori_kode' => ['required', 'max:2'],
+            //     'kategori_nama' => ['required', 'min:3'],
+            // ]);
+            // $validatedData = $request->validateWithBag('post', [
+                //     'kategori_kode' => ['required', 'max:2'],
+                //     'kategori_nama' => ['required', 'min:3'],
+                // ]);
+                
+                
+                
+                // $validated = $request->validate([
+                    //     'kategori_kode' => 'required',
+                    //     'kategori_nama' => 'required',
+                    // ]) ;
+        
+        // JOBSHEET 6 - B No 6 
+        $validate = $request->validate([
+            'kategori_kode' => 'bail|required|max:255',
+            'kategori_nama' => 'required|min:10',
         ]);
+
         return redirect('/kategori');
     }
-
+                
     public function edit($id){
         $kategori = KategoriModel::find($id);
         return view('kategori.edit', ['data' => $kategori]);
@@ -57,8 +78,8 @@ class KategoriController extends Controller
     {
         $kategori= KategoriModel::find($id);
 
-        $kategori->kategori_kode = $request->kodeKategori;
-        $kategori->kategori_nama = $request->namaKategori;
+        $kategori->kategori_kode = $request->kategori_kode;
+        $kategori->kategori_nama = $request->kategori_nama;
         $kategori->save();
         
         return redirect('/kategori');
