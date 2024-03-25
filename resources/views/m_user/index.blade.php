@@ -1,4 +1,8 @@
-@extends('m_user/template')
+
+{{-- Jobsheet 6 - Tugas No 1 dan 2 --}}
+{{-- Tugas No 1, pada praktikum sebelumnya level_id sudah tertampil pada web --}}
+@extends('layout.app')
+
 @section('content')
 <div class="row mt-5 mb-5">
     <div class="col-lg-12 margin-tb">
@@ -24,6 +28,7 @@
         <th width="200px" class="text-center">username</th>
         <th width="200px" class="text-center">nama</th>
         <th width="150px" class="text-center">password</th>
+        <th width="150px" class="text-center">action</th>
     </tr>
 
     @foreach ($useri as $m_user)
