@@ -19,6 +19,7 @@
             </div>
 
             <form method="post" action="../level">
+                {{ csrf_field() }}
                 <div class="card-body">
                     
                     <div class="form-group">

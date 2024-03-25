@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,9 @@ Route::get('kategori/delete/{id}', [KategoriController::class, 'hapus'])->name('
 
 Route::get('/level/tambah', [LevelController::class, 'tambah'])->name('/level/tambah');
 Route::post('/level', [LevelController::class, 'store']);
+
+
+// Jobsheet 6 - D No 2
+Route::resource('m_user', POSController::class);
+
 

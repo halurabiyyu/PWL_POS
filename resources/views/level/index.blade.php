@@ -2,9 +2,9 @@
 
 {{-- Customize layout section  --}}
 
-@section('subtitle', 'User')
+@section('subtitle', 'Level')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'User')
+@section('content_header_subtitle', 'Level')
 
 {{-- Content body: main page content  --}}
 
