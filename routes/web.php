@@ -5,6 +5,8 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
 Route::get('/level', [LevelController::class, 'index']);
 Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
@@ -52,3 +54,5 @@ Route::post('/level', [LevelController::class, 'store']);
 Route::resource('m_user', POSController::class);
 
 
+// Jobsheet 7 - Praktikum 2. No 5 
+Route::get('/', [WelcomeController::class, 'index']);

@@ -36,7 +36,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @inlude('layout.breadcrumb')
+    @include('layout.breadcrumb')
 
     <!-- Main content -->
     <section class="content">
@@ -48,7 +48,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  @inlcude('layout.footer')
+  @include('layout.footer')
 </div>
 <!-- ./wrapper -->
 
