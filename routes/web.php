@@ -24,7 +24,7 @@ use App\Http\Controllers\WelcomeController;
 // });
 
 // Route::get('/level', [LevelController::class, 'index']);
-Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
+// Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
 // Route::get('/user', [UserController::class, 'index'])->name('/user');
 
 // // Jobsheet 4 - Praktikum 2.6
@@ -37,13 +37,13 @@ Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori')
 
 // Jobsheet 5 - Praktikum 3  
 
-Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
-Route::post('/kategori', [KategoriController::class, 'store']);
+// Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
+// Route::post('/kategori', [KategoriController::class, 'store']);
 
-// Jobsheet 5 Tugas 
-Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
-Route::put('kategori/edit_save/{id}', [KategoriController::class, 'edit_save'])->name('/kategori/edit_save');
-Route::get('kategori/delete/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
+// // Jobsheet 5 Tugas 
+// Route::get('kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
+// Route::put('kategori/edit_save/{id}', [KategoriController::class, 'edit_save'])->name('/kategori/edit_save');
+// Route::get('kategori/delete/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
 
 
 // Route::get('/level/tambah', [LevelController::class, 'tambah'])->name('/level/tambah');
@@ -69,7 +69,6 @@ Route::group(['prefix' => 'user'], function(){
     Route::delete('/{id}', [UserController::class, 'destroy']);
 });
 
-
 Route::group(['prefix' => 'level'], function(){
     Route::get('/', [LevelController::class, 'index']);
     Route::post('/list', [LevelController::class, 'list']);
@@ -78,6 +77,16 @@ Route::group(['prefix' => 'level'], function(){
     Route::get('/{id}', [LevelController::class, 'show']);
     Route::get('/{id}/edit', [LevelController::class, 'edit']);
     Route::put('/{id}', [LevelController::class, 'update']);
-    Route::delete('/{id}', [LevelController::class, 'destroy']);
-    
+    Route::delete('/{id}', [LevelController::class, 'destroy']);    
+});
+
+Route::group(['prefix' => 'kategori'], function(){
+    Route::get('/', [KategoriController::class, 'index']);
+    Route::post('/list', [KategoriController::class, 'list']);
+    Route::get('/create', [KategoriController::class, 'create']);
+    Route::post('/', [KategoriController::class, 'store']);
+    Route::get('/{id}', [KategoriController::class, 'show']);
+    Route::get('/{id}/edit', [KategoriController::class, 'edit']);
+    Route::put('/{id}', [KategoriController::class, 'update']);
+    Route::delete('/{id}', [KategoriController::class, 'destroy']);    
 });
