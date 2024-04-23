@@ -37,6 +37,7 @@
                         <th>ID</th>
                         <th>Pegawai</th>
                         <th>Pembeli</th>
+                        {{-- <th>Nama Barang</th> --}}
                         <th>Kode Penjualan</th>
                         <th>Tanggal Penjualan</th>
                         <th>Aksi</th>
@@ -82,6 +83,12 @@
                     orderable: false,    // orderable: true, jika ingin kolom ini bisa diurutkan 
                     searchable: true    // searchable: true, jika ingin kolom ini bisa dicari 
                 },
+                // { 
+                //     data: "detail.barang_nama",                
+                //     className: "", 
+                //     orderable: false,    // orderable: true, jika ingin kolom ini bisa diurutkan 
+                //     searchable: true    // searchable: true, jika ingin kolom ini bisa dicari 
+                // },
                 { 
                     data: "penjualan_kode",                
                     className: "", 

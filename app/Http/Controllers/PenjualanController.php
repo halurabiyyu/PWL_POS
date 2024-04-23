@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailPenjualanModel;
 use App\Models\PenjualanModel;
+use App\Models\StokModel;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -27,15 +28,18 @@ class PenjualanController extends Controller
 
         $user = UserModel::all();
 
+        $detailPenjualan = DetailPenjualanModel::all();
+
         $penjualan = PenjualanModel::all();
 
-        return view('penjualan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'barang' => $barang, 'penjualan' => $penjualan, 'user' => $user, 'activeMenu' => $activeMenu]);
+        return view('penjualan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'barang' => $barang, 'detailPenjualan' => $detailPenjualan, 'penjualan' => $penjualan, 'user' => $user, 'activeMenu' => $activeMenu]);
     }
 
     public function list(Request $request){
         $penjualans = PenjualanModel::select('penjualan_id','user_id', 'pembeli', 'penjualan_kode', 'penjualan_tanggal')
                     ->with('user');
 
+        $detailPenjualan = DetailPenjualanModel::with('penjualan')->find($request->penjualan_id);
 
         if ($request->user_id) {
             $penjualans->where('user_id', $request->user_id);
@@ -101,6 +105,8 @@ class PenjualanController extends Controller
             'harga' => $barang->harga_jual,
             'jumlah' => $request->jumlah,
         ]);
+
+        StokModel::where('barang_id', $request->barang_id)->decrement('stok_jumlah', $request->jumlah);
 
         return redirect('/penjualan')->with('success', 'Data penjualan berhasil disimpan');
     }
