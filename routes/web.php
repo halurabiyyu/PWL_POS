@@ -142,12 +142,12 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 // jika user yang login merupakan manager maka akan diarahkan ke UserController
 Route::group(['middleware' => 'auth'], function () {
 
-Route::group(['middleware' => 'cek_login:1'], function () {
-    Route::resource('admin', AdminController::class);
-});
+    Route::group(['middleware' => 'cek_login:1'], function () {
+        Route::resource('admin', AdminController::class);
+    });
 
-Route::group(['middleware' => 'cek_login:2'], function () {
-    Route::resource('manager', ManagerController::class);
-});
+    Route::group(['middleware' => 'cek_login:2'], function () {
+        Route::resource('manager', ManagerController::class);
+    });
 
 });
