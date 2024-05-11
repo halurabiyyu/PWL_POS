@@ -22,6 +22,7 @@
                         <th>Harga</th> 
                         <th>Jumlah</th> 
                         <th>Total</th> 
+                        <th>Gambar Barang</th>
                     </tr> 
                     @foreach ($detailPenjualan as $item)
                         <tr> 
@@ -32,7 +33,7 @@
                             <td>{{ $item->harga }}</td> 
                             <td>{{ $item->jumlah }}</td>
                             <td>{{ $item->jumlah * $item->harga }}</td>
-
+                            <td><img src="{{ asset('storage/posts/' . $item->barang->image) }}" alt="Image" style="width: 100px; height: 100px;"></td>
                         </tr>                         
                     @endforeach
                 </table> 

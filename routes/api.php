@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\LevelController;
+use App\Http\Controllers\Api\TransaksiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RegisterController;
@@ -60,3 +61,8 @@ Route::delete('barangs/{barang}', [BarangController::class, 'destroy']);
 
 Route::post('/register1',  App\Http\Controllers\Api\RegisterController::class)->name('register1');
 
+Route::get('transaksi', [TransaksiController::class, 'index']);
+Route::post('transaksi', [TransaksiController::class, 'store']);
+Route::get('transaksi/{transaksi}', [TransaksiController::class, 'show']);
+Route::put('transaksi/{transaksi}', [TransaksiController::class, 'update']);
+Route::delete('transaksi/{transaksi}', [TransaksiController::class, 'destroy']);
